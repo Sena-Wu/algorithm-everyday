@@ -12,21 +12,7 @@ package per.senawu.algorithm.leetcode.binarytree;
  * 展开后的单链表应该与二叉树 先序遍历 顺序相同。
  */
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
+
 public class Solution114 {
     TreeNode head =  new TreeNode();
     TreeNode head1 = head;
@@ -49,5 +35,18 @@ public class Solution114 {
         }
 
 
+    }
+
+    class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
     }
 }
