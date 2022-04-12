@@ -5,6 +5,9 @@ package per.senawu.algorithm.leetcode.binarytree;
  * @date 2022/3/30
  */
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 给定一个 完美二叉树 ，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：
  *
@@ -18,28 +21,9 @@ package per.senawu.algorithm.leetcode.binarytree;
  *
  * 初始状态下，所有 next 指针都被设置为 NULL。
  */
-/**
- *Definition for a Node.
- *class Node {
- *    public int val;
- *    public Node left;
- *    public Node right;
- *    public Node next;
- *
- *    public Node() {}
- *
- *    public Node(int _val) {
- *        val = _val;
- *    }
- *
- *    public Node(int _val, Node _left, Node _right, Node _next) {
- *        val = _val;
- *        left = _left;
- *        right = _right;
- *        next = _next;
- *    }
- *};
- */
+
+
+
 public class Solution116 {
     public Node connect(Node root) {
         // 层次遍历
@@ -67,6 +51,26 @@ public class Solution116 {
         }
         return root;
 
+    }
+
+    class Node {
+        public int val;
+        public Node left;
+        public Node right;
+        public Node next;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, Node _left, Node _right, Node _next) {
+            val = _val;
+            left = _left;
+            right = _right;
+            next = _next;
+        }
     }
 
 }
