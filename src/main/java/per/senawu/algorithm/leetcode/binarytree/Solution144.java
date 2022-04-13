@@ -54,6 +54,26 @@ public class Solution144 {
         }
 
         return result;
+
+        // 非递归:2
+//        ArrayList<Integer> result = new ArrayList();
+//        LinkedList<TreeNode> stack = new LinkedList();
+//
+//        if (root == null){
+//            return result;
+//        }
+//        stack.push(root);
+//        while(!stack.isEmpty()){
+//            root = stack.pop();
+//            if (root.right != null){
+//                stack.push(root.right);
+//            }
+//            if (root.left != null){
+//                stack.push(root.left);
+//            }
+//            result.add(root.val);
+//        }
+//        return result;
     }
 
 
