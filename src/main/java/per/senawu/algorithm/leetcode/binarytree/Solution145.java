@@ -53,6 +53,47 @@ public class Solution145 {
 
         return result;
 
+        // 非递归:2
+        // LinkedList<Integer> result = new LinkedList();
+        // LinkedList<TreeNode> stack = new LinkedList();
+
+        // if (root == null){
+        //     return result;
+        // }
+        // stack.push(root);
+        // while (! stack.isEmpty()){
+        //     root = stack.pop();
+        //     if (root.left != null){
+        //         stack.push(root.left);
+        //     }
+        //     if (root.right != null){
+        //         stack.push(root.right);
+        //     }
+        //     result.push(root.val);
+        // }
+        // return result;
+
+        // 非递归:3
+//        LinkedList<Integer> result = new LinkedList<>();
+//        LinkedList<TreeNode> stack = new LinkedList<>();
+//
+//        if (root == null){
+//            return result;
+//        }
+//
+//        // while(1)
+//        // 写法与前序基本一致；只需将左右子树的遍历顺序改变；再将结果集逆转（所以这里使用了stack结构）
+//        while (!stack.isEmpty() || root != null){
+//            while(root != null){
+//                stack.push(root);
+//                result.push(root.val);
+//                root = root.right;
+//            }
+//            root = stack.pop();
+//            root = root.left;
+//        }
+//        return result;
+
     }
 
     public class TreeNode {
