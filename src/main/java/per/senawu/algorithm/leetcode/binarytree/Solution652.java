@@ -8,6 +8,12 @@ import java.util.List;
  * @author Sena-wu
  * @date 2022/4/14
  */
+
+/**
+ * 给定一棵二叉树 root，返回所有重复的子树。
+ * 对于同一类的重复子树，你只需要返回其中任意一棵的根结点即可。
+ * 如果两棵树具有相同的结构和相同的结点值，则它们是重复的。
+ */
 public class Solution652 {
     HashMap<String, Integer> trees = new HashMap();
     ArrayList<TreeNode> res = new ArrayList();
