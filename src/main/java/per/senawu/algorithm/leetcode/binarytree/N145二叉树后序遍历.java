@@ -16,7 +16,7 @@ import java.util.List;
  * 一、递归解法
  * 二、非递归解法
  */
-public class Solution145 {
+public class N145二叉树后序遍历 {
 
     public List<Integer> postorderTraversal(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();
