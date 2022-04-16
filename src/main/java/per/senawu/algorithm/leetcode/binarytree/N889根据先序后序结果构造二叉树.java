@@ -7,26 +7,10 @@ package per.senawu.algorithm.leetcode.binarytree;
 
 /**
  * 给定两个整数数组，preorder 和 postorder ，其中 preorder 是一个具有 无重复 值的二叉树的前序遍历，postorder 是同一棵树的后序遍历，重构并返回二叉树。
- *
  * 如果存在多个答案，您可以返回其中任何 一个。(preorder与postorder不能唯一确定一颗树)
  */
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-public class Solution889 {
+public class N889根据先序后序结果构造二叉树 {
     public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
         return work(preorder, 0, preorder.length - 1, postorder, 0, postorder.length - 1);
 
