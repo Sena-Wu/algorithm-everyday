@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class Solution144 {
+public class N144二叉树前序遍历 {
     List<Integer> result = new ArrayList();
     public List<Integer> preorderTraversal(TreeNode root) {
         // 递归
