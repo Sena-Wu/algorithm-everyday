@@ -12,9 +12,10 @@ import java.util.*;
  * 给定一个二叉树的根节点 root ，返回 它的 中序 遍历 。
  * 一、递归解法
  * 二、非递归解法
+ * https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
  */
 
-public class Solution94 {
+public class N94二叉树中序遍历 {
     public List<Integer> inorderTraversal(TreeNode root) {
 
         // 非递归
