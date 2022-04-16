@@ -6,25 +6,11 @@ package per.senawu.algorithm.leetcode.binarytree;
  */
 
 /**
- * 给定两个整数数组 inorder 和 postorder ，其中 inorder 是二叉树的中序遍历， postorder 是同一棵树的后序遍历，请你构造并返回这颗 二叉树 。
+ * 给定两个整数数组 inorder 和 postorder ，其中 inorder 是二叉树的中序遍历， postorder 是同一棵树的后序遍历，请你构造并返回这颗 二叉树 。
+ * https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
  */
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-public class Solution106 {
+public class N106根据中序后序结果构造二叉树 {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         return work(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1);
     }
