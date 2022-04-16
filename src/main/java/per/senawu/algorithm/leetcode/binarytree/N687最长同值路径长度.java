@@ -10,22 +10,7 @@ package per.senawu.algorithm.leetcode.binarytree;
  * 两个节点之间的路径长度 由它们之间的边数表示。
  */
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-public class Solution687 {
+public class N687最长同值路径长度 {
     int max = 0;
     public int longestUnivaluePath(TreeNode root) {
         work(root);
