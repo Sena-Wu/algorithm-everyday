@@ -7,25 +7,11 @@ package per.senawu.algorithm.leetcode.binarytree;
 
 /**
  * 给定两个整数数组 preorder 和 inorder ，其中 preorder 是二叉树的先序遍历， inorder 是同一棵树的中序遍历，请构造二叉树并返回其根节点。
+ *
+ * https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
  */
 
-
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-public class Solution105 {
+public class N105根据先序中序结果构造二叉树 {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return work(preorder, 0, preorder.length - 1, inorder, 0, inorder.length-1);
