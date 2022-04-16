@@ -14,7 +14,11 @@ import java.util.LinkedList;
  * 请设计一个算法来实现二叉树的序列化与反序列化。这里不限定你的序列 / 反序列化算法执行逻辑，你只需要保证一个二叉树可以被序列化为一个字符串并且将这个字符串反序列化为原始的树结构。
  */
 
-public class Solution297 {
+/**
+ * 只通过前、中、后序结果无法唯一的确认一棵树、必须要通过中序再加前序或后序才可唯一确定一颗树；
+ * 但是若将二叉树中的空节点也一同保存下来，则它的前序结果可以唯一的确定一颗二叉树
+ */
+public class N297序列化二叉树 {
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
         if (root == null){
