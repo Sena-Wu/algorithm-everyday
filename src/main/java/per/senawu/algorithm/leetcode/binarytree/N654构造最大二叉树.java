@@ -14,7 +14,7 @@ package per.senawu.algorithm.leetcode.binarytree;
  * 返回 nums 构建的 最大二叉树 。
  */
 
-public class Solution654 {
+public class N654构造最大二叉树 {
 
     public TreeNode constructMaximumBinaryTree(int[] nums) {
 
