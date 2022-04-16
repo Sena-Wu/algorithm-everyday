@@ -24,7 +24,7 @@ import java.util.Queue;
 
 
 
-public class Solution116 {
+public class N116完美二叉树串连同层节点 {
     public Node connect(Node root) {
         // 层次遍历
         Queue<Node> queue = new LinkedList<Node>();
