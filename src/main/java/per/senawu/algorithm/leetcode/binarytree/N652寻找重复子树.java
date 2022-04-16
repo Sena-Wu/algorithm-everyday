@@ -14,7 +14,7 @@ import java.util.List;
  * 对于同一类的重复子树，你只需要返回其中任意一棵的根结点即可。
  * 如果两棵树具有相同的结构和相同的结点值，则它们是重复的。
  */
-public class Solution652 {
+public class N652寻找重复子树 {
     HashMap<String, Integer> trees = new HashMap();
     ArrayList<TreeNode> res = new ArrayList();
     public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
