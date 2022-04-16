@@ -12,7 +12,7 @@ package per.senawu.algorithm.leetcode.binarytree;
  * 首先找到需要删除的节点；
  * 如果找到了，删除它。
  */
-public class Solution450 {
+public class N450搜索树删除指定元素 {
     public TreeNode deleteNode(TreeNode root, int key) {
         TreeNode head = root;
         TreeNode prenode = null;
