@@ -14,6 +14,7 @@ package per.senawu.algorithm.leetcode.binarytree;
 
 /**
  * 自顶向下遍历
+ * 根据搜索树的特性
  * 若p、q一个值大于root一个小于root，则root肯定就是他们的最近祖先节点
  * 若p、q中其中有一个值等于root，则root肯定是它的祖先节点
  * 若p、q都小于root，则他们的最近祖先节点一定在root的左子树中
