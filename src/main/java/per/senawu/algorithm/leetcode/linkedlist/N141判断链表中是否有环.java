@@ -22,7 +22,7 @@ public class N141判断链表中是否有环 {
         if (head == null || head.next == null){
             return false;
         }
-        ListNode quick = head.next.next;
+        ListNode quick = head.next;
         ListNode slow = head;
         while(quick != null && quick.next != null){
             if (quick == slow){
