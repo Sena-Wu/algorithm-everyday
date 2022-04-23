@@ -18,7 +18,7 @@ package per.senawu.algorithm.leetcode.linkedlist;
  * 2、找到链表的中间节点mid, 若果链表节点数为2n 返回第n 个节点做为中间节点
  * 3、反转链表mid.next 得到反转后的链表reverseList
  * 4、双指针: 从reverseList 和 头结点 开始遍历
- *      直至reverseList为null 或者 两个node的值不相等(return false)
+ *      直至reverseList为null 或者 两个node的值不相等(还原链表 return false)
  * 5、反转reverseList 并与mid 拼接来还原链表
  */
 public class N234回文链表 {
@@ -31,6 +31,9 @@ public class N234回文链表 {
         mid.next = reverseList;
         while(reverseList != null){
             if (reverseList.val != head.val){
+                // 还原链表
+                reverseList = reverse(mid.next);
+                mid.next = reverseList;
                 return false;
             }
             reverseList = reverseList.next;
