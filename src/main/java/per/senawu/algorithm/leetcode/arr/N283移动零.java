@@ -22,7 +22,7 @@ public class N283移动零 {
             }else{
                 nums[slow] = nums[quick];
                 // 置零 可省去尾处理
-                nums[quick] = 0;
+                nums[quick] = slow != quick ? 0 : nums[quick];
                 slow++;
                 quick++;
             }
