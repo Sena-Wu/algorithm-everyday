@@ -41,6 +41,7 @@ public class N1011在D天内送达包裹的能力 {
         return high;
     }
 
+    // 负载为load需要多少天
     int loadAt(int[] weights, int load){
         int days = 1;
         int once = 0;
