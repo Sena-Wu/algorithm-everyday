@@ -30,7 +30,8 @@ public class N528按权重随机选择 {
     public int pickIndex() {
         // 取[1, count]内一个随机数
         // Math.random() -> [0, 1);  Math.random() * count -> [0, count)
-        int rand = (int) Math.random() * count + 1;
+        // (Math.random() * count) 不加括号的效果 变成((int)  Math.random()) * count
+        int rand = (int) (Math.random() * count) + 1;
         return findX(nums, rand);
     }
 
@@ -41,7 +42,7 @@ public class N528按权重随机选择 {
         while(left < right){
             int mid = left + (right - left)/2;
             if (nums[mid] == target){
-                return target;
+                return mid;
             }
             if (nums[mid] > target){
                 right = mid;
