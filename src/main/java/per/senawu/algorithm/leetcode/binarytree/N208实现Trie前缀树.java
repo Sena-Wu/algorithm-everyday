@@ -21,7 +21,8 @@ import java.util.HashMap;
  */
 
 /**
- * 采用多叉树结构,用来记录字符串前缀
+ * 采用多叉树结构,用来记录字符串前缀; 树的查找路径代表字符串的前缀; 树的任一节点内的元素个数是有序的
+ *
  * 树的节点结构：
  *      class Node {
  *         boolean[] character = new boolean[26];
