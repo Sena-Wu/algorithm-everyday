@@ -60,7 +60,7 @@ import java.util.LinkedHashSet;
  *      minFreq记录最小频率值
  *      hashmap保存key-value实现O(1)读取
  *      hashmap保存key-freq实现O(1)修改freq
- *      linkedHashSet保存freq-keyList实现O(1)查找满足移除条件的key
+ *      hashmap<int, linkedHashSet>保存freq-keyList实现O(1)查找满足移除条件的key
  */
 public class N460LFU缓存 {
     private int maxCapacity = 0, minFreq = 1;
