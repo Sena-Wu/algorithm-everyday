@@ -3,6 +3,24 @@ package per.senawu.algorithm.leetcode.linkedlist;
 /**
  * @author Sena-wu
  * @date 2022/6/13
+ * <p>
+ * 请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
+ * 实现 LRUCache 类：
+ * LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存
+ * int get(int key) 如果关键字 key 存在于缓存中，则返回关键字的值，否则返回 -1 。
+ * void put(int key, int value) 如果关键字 key 已经存在，则变更其数据值 value ；如果不存在，则向缓存中插入该组 key-value 。如果插入操作导致关键字数量超过 capacity ，则应该 逐出 最久未使用的关键字。
+ * 函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
+ * <p>
+ * 链接：https://leetcode.cn/problems/lru-cache
+ * <p>
+ * 请你设计并实现一个满足  LRU (最近最少使用) 缓存 约束的数据结构。
+ * 实现 LRUCache 类：
+ * LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存
+ * int get(int key) 如果关键字 key 存在于缓存中，则返回关键字的值，否则返回 -1 。
+ * void put(int key, int value) 如果关键字 key 已经存在，则变更其数据值 value ；如果不存在，则向缓存中插入该组 key-value 。如果插入操作导致关键字数量超过 capacity ，则应该 逐出 最久未使用的关键字。
+ * 函数 get 和 put 必须以 O(1) 的平均时间复杂度运行。
+ * <p>
+ * 链接：https://leetcode.cn/problems/lru-cache
  */
 
 /**
@@ -16,7 +34,7 @@ package per.senawu.algorithm.leetcode.linkedlist;
  * 链接：https://leetcode.cn/problems/lru-cache
  */
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 
 /**
  * hash + 双向链表
@@ -27,36 +45,115 @@ import java.util.LinkedHashMap;
  */
 public class N146LRU缓存 {
     private int maxCapacity = 0;
-    private LinkedHashMap<Integer, Integer> cache = new LinkedHashMap();
+    private HashMap<Integer, Node> cache = new HashMap<>();
+    private Node first = null;
+    private Node last = null;
+
     public N146LRU缓存(int capacity) {
         this.maxCapacity = capacity;
     }
 
     public int get(int key) {
-        if (!cache.containsKey(key)){
+        if (!cache.containsKey(key)) {
             return -1;
         }
         makeRecent(key);
-        return cache.get(key);
+        return cache.get(key).val;
     }
 
     public void put(int key, int value) {
-        // key 存在 先修改后更新至尾部
-        if (cache.containsKey(key)){
-            cache.put(key, value);
+        if (cache.containsKey(key)) {
             makeRecent(key);
+            cache.get(key).val = value;
             return;
         }
-        // 不存在检查是否超出最大容量
-        if (cache.size() >= maxCapacity){
-            Integer oldestKey = cache.keySet().iterator().next();
-            cache.remove(oldestKey);
+        if (cache.size() >= maxCapacity) {
+            removeOld();
         }
-        cache.put(key, value);
+        Node node = new Node();
+        cache.put(key, node);
+        node.key = key;
+        node.val = value;
+        node.before = last;
+        node.after = null;
+        if (last == null) {
+            first = last = node;
+        } else {
+            last.after = node;
+            last = node;
+        }
     }
 
-    private void makeRecent(int key){
-        Integer val = cache.remove(key);
-        cache.put(key, val);
+    private void removeOld() {
+        cache.remove(first.key);
+        if (first == last) {
+            first = null;
+            last = null;
+            return;
+        }
+        first = first.after;
+        first.before = null;
     }
+
+    private void makeRecent(int key) {
+        Node node = cache.get(key);
+        if (last == node) {
+            return;
+        }
+        if (first == node) {
+            first = node.after;
+        }
+        if (node.after != null) {
+            node.after.before = node.before;
+        }
+        if (node.before != null) {
+            node.before.after = node.after;
+        }
+        last.after = node;
+        node.before = last;
+        node.after = null;
+        last = node;
+    }
+
+    class Node {
+        int key;
+        int val;
+        Node before;
+        Node after;
+    }
+
+
+//    private int maxCapacity = 0;
+//    private LinkedHashMap<Integer, Integer> cache = new LinkedHashMap();
+//    public N146LRU缓存(int capacity) {
+//        this.maxCapacity = capacity;
+//    }
+//
+//    public int get(int key) {
+//        if (!cache.containsKey(key)){
+//            return -1;
+//        }
+//        makeRecent(key);
+//        return cache.get(key);
+//    }
+//
+//    public void put(int key, int value) {
+//        // key 存在 先修改后更新至尾部
+//        if (cache.containsKey(key)){
+//            cache.put(key, value);
+//            makeRecent(key);
+//            return;
+//        }
+//        // 不存在检查是否超出最大容量
+//        if (cache.size() >= maxCapacity){
+//            Integer oldestKey = cache.keySet().iterator().next();
+//            cache.remove(oldestKey);
+//        }
+//        cache.put(key, value);
+//    }
+//
+//    private void makeRecent(int key){
+//        Integer val = cache.remove(key);
+//        cache.put(key, val);
+//    }
 }
