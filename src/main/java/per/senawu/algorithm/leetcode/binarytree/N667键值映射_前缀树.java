@@ -22,12 +22,15 @@ package per.senawu.algorithm.leetcode.binarytree;
 /**
  * 多叉树节点结构设计：
  *     class Node{
- *         char[] prefixValCount = new char[26];  count[index]表示以该前缀开头的可以的值的总和
+ *         int[] prefixValCount = new int[26];  prefixValCount[index]表示以该前缀开头的可以的值的总和
  *         int[] keys = new int[26];  key值; 等于0表示root到count[index]的路径只是前缀 ，否则为key, key[index]为该key的值；
  *         Node[] children = new Node[26];  子节点
  *     }
  * key 和 prefix 仅由小写英文字母组成
  * 1 <= val <= 1000
+ *
+ * 插入时key经过的每个节点都会累加 该key的val; 若该key存在旧值则递归的在经过的每个节点上 减去该key的旧值;
+ * 所以每个节点的累加值即为以 root->该节点 为前缀的所有key的val的总和
  */
 public class N667键值映射_前缀树 {
     private Node root = new Node();
@@ -60,7 +63,7 @@ public class N667键值映射_前缀树 {
     }
 
     /**
-     * 递归更新 插入时prefixValCount[index] + key的val; 若果该key已存在则返回该key的旧值，递归prefixValCount - key的旧值
+     * 递归更新 插入时prefixValCount[index] + key的val; 返回该key的旧值(初始为0)，递归prefixValCount - key的旧值
      * @param node
      * @param s
      * @param start
