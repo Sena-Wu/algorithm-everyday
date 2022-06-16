@@ -20,7 +20,7 @@ package per.senawu.algorithm.leetcode.binarytree;
 /**
  * 节点结构：
  *      class Node{
- *         boolean[] character = new boolean[26];
+ *         boolean[] character = new boolean[26];  // 该数组可以去除, 仅通过children[index] 是否为null则可以判断未去除character数组时character[index]的值是否为true
  *         boolean[] isEnd = new boolean[26];
  *         boolean like = false;  // 模糊匹配 该节点是否有插入值 省去遍历isEnd的步骤
  *         Node[] children = new Node[26];
