@@ -6,7 +6,7 @@ package per.senawu.algorithm.leetcode.linkedlist;
  */
 public class N295数据流中的中位数 {
     boolean flag = false; // true 代表有奇数个节点
-    Node mid = null;
+    Node mid = null;  // 偶数个节点时，表示第一个中位数
 
     public N295数据流中的中位数() {
 
@@ -21,24 +21,22 @@ public class N295数据流中的中位数 {
             return;
         }
         Node work = mid;
-        if (num == work.val){
+        if(num >= work.val){
+            while (work.after != null && num > work.after.val){work = work.after;}
             node.after = work.after;
             node.before = work;
             work.after = node;
-            node.after.before = node;
+            if (node.after != null){node.after.before = node;}
+            mid = flag == true ? mid.after: mid;
+        }else{
+            while (work.before != null && num < work.before.val){work = work.before;}
+            node.before = work.before;
+            node.after = work;
+            work.before = node;
+            if (node.before != null){node.before.after = node;}
+            mid = flag == true ? mid: mid.before;
         }
-        while(work != null){
-            if (num > work.val && work.after != null){
-                work = work.after;
-            }else if(num < work.val && work.before != null){
-                work = work.after;
-            }else if(num == work.val){
-                node.after = work.after;
-                node.before = work;
-                work.after = node;
-                node.after.before = node;
-            }
-        }
+
     }
 
     public double findMedian() {
