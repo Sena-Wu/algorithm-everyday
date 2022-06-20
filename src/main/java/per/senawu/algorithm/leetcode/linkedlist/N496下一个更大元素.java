@@ -26,6 +26,7 @@ import java.util.LinkedList;
  *  从后往前遍历数组，使用单调栈stack保存更大元素,res数组保存结果
  *      1、遍历到该元素x时把stack中小于x的元素pop出来
  *      2、stack不为空则peak stack栈顶元素保存至res, 否则保存-1至res
+ *      3、把 x 压入栈顶
  */
 public class N496下一个更大元素 {
     HashMap<Integer, Integer> map = new HashMap<>();
