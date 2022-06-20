@@ -20,6 +20,7 @@ import java.util.LinkedList;
  *  从后往前遍历T数组，使用单调栈stack保存更大元素,res数组保存结果
  *     1、遍历到该元素T[i % nums.length]时把stack中小于x的元素pop出来
  *     2、stack不为空则peak stack栈顶元素保存至res[i % nums.length], 否则保存-1至res[i % nums.length]
+ *     3、把 T[i % nums.length] 的下标压入栈顶
  */
 public class N503下一个更大元素_循环数组 {
     public int[] nextGreaterElements(int[] nums) {
