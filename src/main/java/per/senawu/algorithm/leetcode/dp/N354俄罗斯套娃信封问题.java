@@ -21,6 +21,9 @@ import java.util.Comparator;
  * 对二组数组根据nums[i][0] 排序后对nums[i][1]求解最长子序列
  *      先按第一列升序, 第一列值相等按照第二列降序
  *      第二列降序是因为信封必须长宽都要大于才能套娃 第二列升序子序列求解时需要使用nums[i][0]辅助判断 改为降序则不需要
+ *
+ *  解法二：
+ *      在求解最长子序列是使用二分解法降低时间复杂度: 见N300解析
  */
 public class N354俄罗斯套娃信封问题 {
     public int maxEnvelopes(int[][] envelopes) {
