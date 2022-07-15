@@ -76,9 +76,11 @@ public class N5最长回文子串 {
         memo = new HashMap();
         char[] tochar = s.toCharArray();
         int[] sub = work(tochar, 0, s.length()-1);
+        // substring是左闭右开
         return s.substring(sub[0], sub[1]+1);
     }
 
+    // 返回值为s 在 [low, high]范围内的最长回文子串的首尾下标
     int[] work(char[] s, int low, int high){
         if (low == high || low == high -1 && s[high] == s[low]){
             return new int[]{low, high};
@@ -87,17 +89,29 @@ public class N5最长回文子串 {
             return new int[]{-1, -2};
         }
 
-        int[] sub1 = memo.getOrDefault("_" + (low+1) + "_" + (high-1), null) != null ? memo.get("_" + (low+1) + "_" + (high-1)) : work(s, low+1, high-1);
+        int[] sub1 = memo.getOrDefault(generateKey(low+1, high-1),
+                work(s, low+1, high-1));
         if (s[low] == s[high] && sub1[0] == low+1 && sub1[1] == high-1){
-            memo.put("_" + low + "_" + high, new int[]{low, high});
+            memo.put(generateKey(low, high), new int[]{low, high});
             return new int[]{low, high};
         }
 
-        int[] sub2 = memo.getOrDefault("_" + (low+1) + "_" + (high), null) != null ? memo.get("_" + (low+1) + "_" + (high)) : work(s, low+1, high);
-        int[] sub3 = memo.getOrDefault("_" + (low) + "_" + (high-1), null) != null ? memo.get("_" + (low) + "_" + (high-1)) : work(s, low, high-1);
+        int[] sub2 = memo.getOrDefault(generateKey(low + 1, high),
+                work(s, low+1, high));
+        int[] sub3 = memo.getOrDefault(generateKey(low, high - 1),
+                work(s, low, high-1));
+
+        // 取子串长度最长者
         int[] max = (sub2[1] -sub2[0]) > (sub3[1] -sub3[0]) ? sub2 : sub3;
         max = (sub1[1] -sub1[0]) > (max[1] -max[0]) ? sub1 : max;
-        memo.put("_" + (low) + "_" + (high), max);
+
+        memo.put(generateKey(low, high), max);
+
         return max;
     }
+
+    static String generateKey(int low , int high){
+        return "_" + (low) + "_" + (high);
+    }
+
 }
