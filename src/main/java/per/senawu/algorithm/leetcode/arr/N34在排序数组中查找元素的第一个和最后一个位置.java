@@ -38,7 +38,7 @@ public class N34在排序数组中查找元素的第一个和最后一个位置 
             }
         }
         // nums长度为0 或者 nums中无值为target的元素
-        if (nums.length -1 < 0 || nums[mid] != target){
+        if (nums.length == 0 || nums[mid] != target){
             return result;
         }
 
