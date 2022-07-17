@@ -15,7 +15,7 @@ package per.senawu.algorithm.leetcode.dp;
 
 /**
  * 解法一: 动态规划
- * dp[i] 表示 以nums[0 - i]范围内的最长子序列的长度
+ * dp[i] 表示 以nums[i]为递增子序列最后一个值的最长子序列的长度
  *      dp[i] = max( if (nums[i] > nums[j]): dp[i] = dp[j] + 1); condition:i > j
  *      result = max(dp[i])
  *
