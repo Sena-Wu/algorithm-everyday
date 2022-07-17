@@ -13,7 +13,7 @@ package per.senawu.algorithm.leetcode.arr;
 
 /**
  * 双指针控制水位: 低于该水位的填满; left = 0 ; right = length - 1;
- *  从双头指针中低水位的一侧 遍历-注水, 直至碰到更高的水位更新指针, 重复此过程直至全部遍历完
+ *  从双头指针中低水位的一侧 遍历-接雨水, 直至碰到更高的水位更新指针, 重复此过程直至全部遍历完
  */
 public class N42接雨水 {
     public int trap(int[] height) {
@@ -21,13 +21,14 @@ public class N42接雨水 {
         int right = height.length - 1;
         // 工作指针
         int work = left + 1;
+        // 接的雨水
         int count = 0;
         while(left < right &&  left < work && work < right){
             // 双指针哪头水位低从哪头开始
             if (height[left] < height[right]){
                 // 左侧水位低, 工作指针从左侧开始
                 work = left + 1;
-                // 低于该水位 注水填满
+                // 低于该水位 接雨水填满
                 while (height[work] < height[left]){
                     count += height[left] - height[work];
                     work++;
