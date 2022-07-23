@@ -3,6 +3,12 @@ package per.senawu.algorithm.leetcode.arr;
 /**
  * @author Sena-wu
  * @date 2022/3/23
+ * <p>
+ * 给定一个长度为 n 的整数数组[]height。有 n 条垂线，第 i 条线的两个端点是 (i, 0) 和 (i, height[i]) 。
+ * 找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+ * 返回容器可以储存的最大水量
+ * <p>
+ * 链接：https://leetcode-cn.com/problems/container-with-most-water
  */
 
 /**
@@ -21,14 +27,14 @@ public class N11盛最多水的容器 {
         int max = 0;
         int left = 0;
         int right = height.length - 1;
-        while(left < right){
-            if (height[left] < height[right]){
-                while(height[left] <= height[right] && left < right){
+        while (left < right) {
+            if (height[left] < height[right]) {
+                while (height[left] <= height[right] && left < right) {
                     max = Math.max(max, (right - left) * height[left]);
                     left++;
                 }
-            }else{
-                while(height[right] <= height[left] && left < right){
+            } else {
+                while (height[right] <= height[left] && left < right) {
                     max = Math.max(max, (right - left) * height[right]);
                     right--;
                 }
